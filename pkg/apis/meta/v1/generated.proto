@@ -23,6 +23,7 @@ package k8s.io.apimachinery.pkg.apis.meta.v1;
 
 import "k8s.io/apimachinery/pkg/runtime/generated.proto";
 import "k8s.io/apimachinery/pkg/runtime/schema/generated.proto";
+import "google/protobuf/timestamp.proto";
 
 // Package-wide variables from generator "generated".
 option go_package = "k8s.io/apimachinery/pkg/apis/meta/v1;meta";
@@ -204,7 +205,7 @@ message Condition {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:Type=string
   // +kubebuilder:validation:Format=date-time
-  optional Time lastTransitionTime = 4;
+  optional google.protobuf.Timestamp lastTransitionTime = 4;
 
   // reason contains a programmatic identifier indicating the reason for the condition's last transition.
   // Producers of specific condition types may define expected values and meanings for this field,
@@ -578,7 +579,7 @@ message ManagedFieldsEntry {
 
   // Time is timestamp of when these fields were set. It should always be empty if Operation is 'Apply'
   // +optional
-  optional Time time = 4;
+  optional google.protobuf.Timestamp time = 4;
 
   // FieldsType is the discriminator for the different fields format and version.
   // There is currently only one possible value: "FieldsV1"
@@ -704,7 +705,7 @@ message ObjectMeta {
   // Null for lists.
   // More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
   // +optional
-  optional Time creationTimestamp = 8;
+  optional google.protobuf.Timestamp creationTimestamp = 8;
 
   // DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted. This
   // field is set by the server when a graceful deletion is requested by the user, and is not
@@ -725,7 +726,7 @@ message ObjectMeta {
   // Read-only.
   // More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
   // +optional
-  optional Time deletionTimestamp = 9;
+  optional google.protobuf.Timestamp deletionTimestamp = 9;
 
   // Number of seconds allowed for this object to gracefully terminate before
   // it will be removed from the system. Only set when deletionTimestamp is also set.
